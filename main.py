@@ -21,6 +21,7 @@ html = f"""
                 <li><a href="/redoc">/redoc</a></li>
             </ul>
             <p>Powered by <a href="https://vercel.com" target="_blank">Vercel</a></p>
+            
         </div>
     </body>
 </html>
@@ -31,5 +32,9 @@ async def root():
     return HTMLResponse(html)
 
 @app.get('/ping')
-async def hello():
+async def ping():
     return {'res': 'pong', 'version': __version__, "time": time()}
+    
+@app.get('/greet')
+async def greet():
+    return {'res': 'Hello world!'}
